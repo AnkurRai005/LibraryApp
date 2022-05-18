@@ -11,6 +11,7 @@
 	</parent>
 	<groupId>com.mp.library</groupId>
 	<artifactId>Book</artifactId>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Library</name>
 	<description>Library Spring Mini Project</description>
