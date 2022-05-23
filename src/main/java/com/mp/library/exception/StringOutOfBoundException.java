@@ -13,5 +13,9 @@ import lombok.ToString;
 @ToString
 public class StringOutOfBoundException extends RuntimeException{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8112649868937668013L;
 	private String message;
 }

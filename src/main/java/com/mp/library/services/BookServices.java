@@ -50,14 +50,14 @@ public class BookServices implements IBookServices {
 			throw new NullBookIdException("Book Id is Mandatory");
 		}
 		Optional<Book> bookOpt = bookDao.findById(book.getBookId());
-		if (bookOpt.isPresent()){
-			Book b = bookOpt.get();
-			b.setAuthorName(book.getAuthorName());
-			bookDao.save(b);
-			LOGGER.info("Author Name for Book Id: {} updated.",book.getBookId());
-			return book;
+		if (bookOpt.isEmpty()){
+			throw new NullBookIdException("Book does not exist");
 		}
-		return null;
+		Book b = bookOpt.get();
+		b.setAuthorName(book.getAuthorName());
+		bookDao.save(b);
+		LOGGER.info("Author Name for Book Id: {} updated.",book.getBookId());
+		return book;
 	}
 
 	@Override

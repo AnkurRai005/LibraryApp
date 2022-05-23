@@ -13,6 +13,10 @@ import lombok.ToString;
 @ToString
 public class NullBookIdException extends RuntimeException{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1936364925718530678L;
 	private String message;
 	
 }
