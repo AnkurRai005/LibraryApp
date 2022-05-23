@@ -50,7 +50,7 @@ public class BookServices implements IBookServices {
 			throw new NullBookIdException("Book Id is Mandatory");
 		}
 		Optional<Book> bookOpt = bookDao.findById(book.getBookId());
-		if (bookOpt.isEmpty()){
+		if (!bookOpt.isPresent()){
 			throw new NullBookIdException("Book does not exist");
 		}
 		Book b = bookOpt.get();
@@ -64,7 +64,7 @@ public class BookServices implements IBookServices {
 	public Book getBookDetails(Integer bookId) {
 		LOGGER.info("Getting Details for Book Id: {}.", bookId);
 		Optional<Book> bookRecord = bookDao.findById(bookId);
-		if (bookRecord.isEmpty()) {
+		if (!bookRecord.isPresent()) {
 			throw new NullBookIdException("Book Id: " + bookId + " does not exist");
 		}
 		LOGGER.info("Got Details for Book Id: {}.", bookId);
